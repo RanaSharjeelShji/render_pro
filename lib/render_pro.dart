@@ -1,12 +1,11 @@
 library render_pro;
 
-import 'dart:typed_data';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
-import 'dart:convert';
 import 'dart:io';
+import 'dart:developer' as developer;
 
 /// A class to manage image preloading and caching.
 class RenderPro {
@@ -20,16 +19,21 @@ class RenderPro {
   }
 
   /// Preloads a single image and stores it in the cache.
-  static Future<void> _preloadImage(String url) async {
-    try {
-      final imageData = await _fetchImage(url);
-      final codec = await ui.instantiateImageCodec(imageData);
-      final frame = await codec.getNextFrame();
-      _imageCache[url] = frame.image;
-    } catch (e) {
-      print('Failed to preload image: $url. Error: $e');
-    }
+static Future<void> _preloadImage(String url) async {
+  try {
+    final imageData = await _fetchImage(url);
+    final codec = await ui.instantiateImageCodec(imageData);
+    final frame = await codec.getNextFrame();
+    _imageCache[url] = frame.image;
+  } catch (e) {
+    developer.log(
+      'Failed to preload image',
+      name: 'RenderPro',
+      error: e,
+      stackTrace: StackTrace.current,
+    );
   }
+}
 
   /// Fetches image data from a network URL.
   static Future<Uint8List> _fetchImage(String url) async {
@@ -68,8 +72,8 @@ class RenderProImage extends StatelessWidget {
     this.fit,
     this.alignment,
     this.filterQuality,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
