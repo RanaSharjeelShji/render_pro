@@ -1,3 +1,6 @@
+## 0.1.5
+
+* Render Pro: Read me file fixed.
 ## 0.1.4
 
 * Render Pro: Lazy loading lag fixed.
