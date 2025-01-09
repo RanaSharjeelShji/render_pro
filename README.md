@@ -1,10 +1,12 @@
-<div style="height: 400px; overflow: auto;">
+<div style="height: 200px; overflow: auto;">
 
 # Render_Pro 
 [![Learn More](https://github.com/RanaSharjeelShji/Rana-Sharjeel-Ali/blob/main/assets/renderpro.gif)](https://youtube.com/@coderedclan?si=GAD268WHb1z-Iker)
 
 </div>
+
 # About
+
 `render_pro` is a Dart package to render images on background. Now no need to show loaders or Shimmer effects on network images.
 Render Pro give smooth experince to your network images
 ## Features
