@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:render_pro/render_pro.dart';
 
@@ -10,7 +12,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -83,7 +85,7 @@ class Global {
 }
 
 class NextScreen extends StatelessWidget {
-  const NextScreen({Key? key}) : super(key: key);
+  const NextScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +109,7 @@ class NextScreen extends StatelessWidget {
                 url: placeholderImageUrls[index],
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.high,
-                placeholder: CircularProgressIndicator(),
+                placeholder: const CircularProgressIndicator(),
               ),
             ),
           );

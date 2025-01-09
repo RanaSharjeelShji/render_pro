@@ -1,3 +1,6 @@
+## 0.1.1
+
+* Render Pro: Now we support web platforms as well.
 ## 0.0.3
 
 * Render Pro: Optimized code and rendering.

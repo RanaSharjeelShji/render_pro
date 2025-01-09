@@ -1,10 +1,11 @@
 library render_pro;
 
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'dart:ui' as ui;
-import 'dart:io';
 import 'dart:developer' as developer;
 
 /// A class to manage image preloading and caching.
@@ -19,32 +20,42 @@ class RenderPro {
   }
 
   /// Preloads a single image and stores it in the cache.
-static Future<void> _preloadImage(String url) async {
-  try {
-    final imageData = await _fetchImage(url);
-    final codec = await ui.instantiateImageCodec(imageData);
-    final frame = await codec.getNextFrame();
-    _imageCache[url] = frame.image;
-  } catch (e) {
-    developer.log(
-      'Failed to preload image',
-      name: 'RenderPro',
-      error: e,
-      stackTrace: StackTrace.current,
-    );
+  static Future<void> _preloadImage(String url) async {
+    try {
+      final imageData = await _fetchImage(url);
+      final codec = await ui.instantiateImageCodec(imageData);
+      final frame = await codec.getNextFrame();
+      _imageCache[url] = frame.image;
+    } catch (e) {
+      developer.log(
+        'Failed to preload image',
+        name: 'RenderPro',
+        error: e,
+        stackTrace: StackTrace.current,
+      );
+    }
   }
-}
 
   /// Fetches image data from a network URL.
   static Future<Uint8List> _fetchImage(String url) async {
     final uri = Uri.parse(url);
-    final request = await HttpClient().getUrl(uri);
-    final response = await request.close();
-
-    if (response.statusCode == 200) {
-      return await consolidateHttpClientResponseBytes(response);
+    if (kIsWeb) {
+      // Web-compatible image fetching
+      final response = await http.get(uri);
+      if (response.statusCode == 200) {
+        return response.bodyBytes;
+      } else {
+        throw Exception("Failed to load image from $url");
+      }
     } else {
-      throw Exception("Failed to load image from $url");
+      // Non-web image fetching
+      final request = await HttpClient().getUrl(uri);
+      final response = await request.close();
+      if (response.statusCode == 200) {
+        return await consolidateHttpClientResponseBytes(response);
+      } else {
+        throw Exception("Failed to load image from $url");
+      }
     }
   }
 
@@ -80,7 +91,6 @@ class RenderProImage extends StatelessWidget {
     final cachedImage = RenderPro.getImage(url);
 
     if (cachedImage != null) {
-      // Use a Container to apply height, width, fit, etc. to the cached image
       return Container(
         height: height,
         width: width,
@@ -92,7 +102,6 @@ class RenderProImage extends StatelessWidget {
         ),
       );
     } else {
-      // Fallback to loading the image directly if not preloaded.
       return Image.network(
         url,
         height: height,
