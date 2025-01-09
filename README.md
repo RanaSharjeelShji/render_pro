@@ -1,6 +1,6 @@
 
 # Render_Pro 
-[![Learn More](https://github.com/RanaSharjeelShji/Rana-Sharjeel-Ali/blob/main/assets/GIF_20250109_124048_493.gif)](https://youtube.com/@coderedclan?si=GAD268WHb1z-Iker)
+[![Learn More](example/assets/GIF_20250109_124048_493.gif)](https://youtube.com/@coderedclan?si=GAD268WHb1z-Iker)
 
 
 # About
