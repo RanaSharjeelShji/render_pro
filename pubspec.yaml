@@ -1,7 +1,7 @@
 name: render_pro
-description: "A new Flutter package project."
+description: "Load network images on background before showing images. no need to show loaders anymore."
 version: 0.0.1
-homepage:
+homepage: https://github.com/RanaSharjeelShji/render_pro
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
