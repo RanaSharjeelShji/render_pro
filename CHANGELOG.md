@@ -1,3 +1,9 @@
+## 0.1.2
+
+* Render Pro: Updated documentation.
+## 0.1.2
+
+* Render Pro: Updated documentation.
 ## 0.1.0
 
 * Render Pro: Now we support web platforms as well.
