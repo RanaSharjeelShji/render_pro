@@ -1,3 +1,6 @@
+## 0.0.3
+
+* Render Pro: Optimized code and rendering.
 ## 0.0.2
 
 * Render Pro: Now you can use all network images properties as well.
