@@ -1,6 +1,6 @@
 name: render_pro
 description: "Load network images on background before showing images. no need to show loaders anymore."
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/RanaSharjeelShji/render_pro
 
 environment:
@@ -24,8 +24,8 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-  assets:
-    - example/assets
+  # assets:
+  #   - example/assets
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see
