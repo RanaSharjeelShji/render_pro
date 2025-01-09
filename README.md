@@ -25,8 +25,10 @@ Create a list of network URLs
     "https://thumbs.dreamstime.com/b/incredibly-beautiful-sunset-sun-lake-sunrise-landscape-panorama-nature-sky-amazing-colorful-clouds-fantasy-design-115177001.jpg",
     'https://images.samsung.com/levant/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-color-carousel-global-mo.jpg?imbypass=true',
     'https://img.freepik.com/premium-photo/aesthetic-sky-background_636537-267412.jpg',
-  ];```
-
+  ];
+```
+ 
+### Start Loading on background
 Call this method to load images before the screen where you need to show images
 ```dart
     RenderPro.init(imageUrls);
