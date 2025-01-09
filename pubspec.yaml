@@ -1,6 +1,6 @@
 name: render_pro
 description: "Load network images on background before showing images. no need to show loaders anymore."
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/RanaSharjeelShji/render_pro
 
 environment:

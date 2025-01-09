@@ -1,3 +1,6 @@
+## 0.1.4
+
+* Render Pro: Lazy loading lag fixed.
 ## 0.1.3
 
 * Render Pro: Updated documentation.
